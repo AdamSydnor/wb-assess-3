@@ -17,12 +17,31 @@ img.centered {
   margin: 0 auto;
 }
 
+.flex {
+  display: flex;
+  align-items: normal;
+}
+
 .fossil-div {
+  border: 2px solid black;
+  text-align: center;
   display: inline-block;
   padding: 10px;
   width: 205px;
+  margin: 0 5px;
+  display: block;
 }
 
 .fossil-div img {
-  border: 2px solid green;
+  border: 5px solid green;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.fossil-select {
+  margin-top: 20px;
+}
+
+.submit-fossil {
+  margin-top: 10px;
 }

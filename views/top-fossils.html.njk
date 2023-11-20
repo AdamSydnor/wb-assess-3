@@ -4,13 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/styles.css" rel="stylesheet" type="text/css">
     <title>Most Liked Fossils</title>
   </head>
   <body>
-    <div class="fossil-div">
-      <h3>{{ fossils[0].name }}</h3>
-      <h2>Liked {{ fossils[0].num_likes }} times.</h2>
-      <img src="{{ fossils[0].img }}" />
+    <h1>Welcome, {{ name }}!</h1>
+    <div class="flex">
+    {% for fossil in fossils %}
+      <div class="fossil-div">
+        <h3>{{ name }}, this is a {{ fossil.name }}.</h3>
+        <h2>Liked {{ fossil.num_likes }} times.</h2>
+        <img src="{{ fossil.img }}" />
+      </div>
+    {% endfor %}
     </div>
+    <form class="fossil-select id="fossil-like-form" action="/like-fossil" method="POST">
+      <div class="fossil-select>
+        <label for="fossil-type">Select the fossil you wish to like</label>
+        <select name="fossil-choice" id="fossil-type">
+          <option disabled selected value> -- select an option -- </option>
+          <option value="aust">Australopithecus</option>
+          <option value="quetz">Quetzal</option>
+          <option value="steg">Stegosaurus</option>
+          <option value="trex">Tyrannosaurus Rex</option>
+        </select>
+      </div>
+      <div class="submit-fossil">
+        <input id="fossil-selected" type="submit" />
+      </div>
+      <div id="selection">
+      </div>
+    </form>
+    <script type="module" src="../src/select.js"></script>
   </body>
 </html>
